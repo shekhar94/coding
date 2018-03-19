@@ -12,14 +12,20 @@ function main(input) {
     var tempTree, count = 0;
     edgeArr.forEach(edge => {
         var edge = edge.split(' ').map(Number);
-        tempTree = updateTree(edge, tree.slice(), 0);
+        tempTree = updateTree(edge, tree.map((e) => { return e.slice() }).slice(), 0);
         islandCounter(noOfNodes, tempTree, v);
         // if (isTreeOrEqual(tempTree)) { count++; }
     });
 }
 
 function isTreeOrEqual(forest) {
-
+    var tempTree, count = 0;
+    edgeArr.forEach(edge => {
+        var edge = edge.split(' ').map(Number);
+        tempTree = updateTree(edge, [...tree], 0);
+        islandCounter(noOfNodes, tempTree, v);
+        // if (isTreeOrEqual(tempTree)) { count++; }
+    });
 }
 
 function islandCounter(noOfNodes, tree, v) {
@@ -37,15 +43,42 @@ function islandCounter(noOfNodes, tree, v) {
     console.log(orResult);
 }
 
-function dfs(tree, node, visited, noOfNodes, orRes, island, v) {
-    tree[node].forEach(function(edge, child) {
-        if (!visited[child] && tree[node][child] === 1) {
-            orRes = or(orRes, v[child]);
-            visited[child] = true;
-            dfs(tree, child, visited, noOfNodes, orRes, island, v);
+function checkConnection(tree, node, visited, noOfNodes) {
+    for (var i = 0; i < noOfNodes; i++) {
+        if (tree[node][i] === 1 && !visited[i]) {
+            return true;
         }
-    });
-    return orRes;
+    }
+    return false;
+}
+
+function dfs(tree, node, visited, noOfNodes, orRes, island, v) {
+    if (!checkConnection(tree, node, visited, noOfNodes)) {
+        console.log(orRes);
+    }
+    for (var i = 0; i < noOfNodes; i++) {
+        if (!visited[i] && tree[node][i] === 1) {
+            orRes = or(orRes, v[i]);
+            visited[i] = true;
+            if (checkConnection(tree, i, visited, noOfNodes)) {
+                dfs(tree, i, visited, noOfNodes, orRes, island, v);
+            } else {
+                console.log(orRes);
+            }
+        }
+    }
+    // tree[node].forEach(function(edge, child) {
+    //     if (!visited[child] && tree[node][child] === 1) {
+    //         orRes = or(orRes, v[child]);
+    //         visited[child] = true;
+    //         if (checkConnection(tree, child, visited, noOfNodes)) {
+    //             dfs(tree, child, visited, noOfNodes, orRes, island, v);
+    //         } else {
+    //             console.log(orRes);
+    //         }
+    //         // return orRes;
+    //     }
+    // });
 }
 
 function or(a, b) {
