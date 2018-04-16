@@ -7,7 +7,7 @@ function main(input) {
         if (query[0] === 'add') {
             trie.insert(query[1]);
         } else {
-            console.log(trie.find(query[1]));
+            trie.find(query[1]);
         }
     }
 }
@@ -16,7 +16,7 @@ class Node {
         this.prefixes = 0;
         this.char = char;
         this.child = new Map();
-        this.isEndOfWord = false;
+        this.is_end_of_word = false;
     }
 }
 class Trie {
@@ -24,55 +24,54 @@ class Trie {
         this.root = new Node('*');
     }
     insert(str) {
-        let strArr = str.split('');
-        let len = strArr.length;
-        let currentNode = this.root;
+        let str_arr = str.split('');
+        let len = str_arr.length;
+        let current_node = this.root;
         let pointer = 0;
-        let currentChar = strArr[pointer];
-        this.insertChar(currentNode, currentChar, pointer, len, strArr);
+        let current_char = str_arr[pointer];
+        this.insertChar(current_node, current_char, pointer, len, str_arr);
     }
-    insertChar(currentNode, currentChar, pointer, len, strArr) {
-        if (currentNode.child.has(currentChar) && (pointer + 1) < len) {
-            currentNode = currentNode.child.get(currentChar);
-            currentChar = strArr[++pointer];
-            currentNode.prefixes++;
-            this.insertChar(currentNode, currentChar, pointer, len, strArr);
+    insertChar(current_node, current_char, pointer, len, str_arr) {
+        if (current_node.child.has(current_char) && (pointer + 1) < len) {
+            current_node = current_node.child.get(current_char);
+            current_char = str_arr[++pointer];
+            current_node.prefixes++;
+            this.insertChar(current_node, current_char, pointer, len, str_arr);
         } else {
-            let node = new Node(currentChar);
+            let node = new Node(current_char);
             if (pointer === len - 1) {
-                node.isEndOfWord = true;
+                node.is_end_of_word = true;
             }
-            currentNode.prefixes++;
-            currentNode.child.set(currentChar, node);
+            node.prefixes++;
+            current_node.child.set(current_char, node);
             if ((pointer + 1) < len) {
-                currentNode = currentNode.child.get(currentChar);
-                currentChar = strArr[++pointer];
+                current_node = current_node.child.get(current_char);
+                current_char = str_arr[++pointer];
             }
-            if (!currentNode.child.has(currentChar)) {
-                this.insertChar(currentNode, currentChar, pointer, len, strArr);
+            if (!current_node.child.has(current_char)) {
+                this.insertChar(current_node, current_char, pointer, len, str_arr);
             }
         }
     }
     find(str) {
-        let strArr = str.split('');
-        let len = strArr.length;
-        let currentNode = this.root;
+        let str_arr = str.split('');
+        let len = str_arr.length;
+        let current_node = this.root;
         let pointer = 0;
-        let currentChar = strArr[pointer];
-        this.findChar(currentNode, currentChar, pointer, len, strArr);
+        let current_char = str_arr[pointer];
+        this.findChar(current_node, current_char, pointer, len, str_arr);
     }
-    findChar(currentNode, currentChar, pointer, len, strArr) {
-        if (currentNode.child.has(currentChar) && (pointer + 1) < len) {
-            currentNode = currentNode.child.get(currentChar);
-            currentChar = strArr[++pointer];
-            return this.findChar(currentNode, currentChar, pointer, len, strArr);
+    findChar(current_node, current_char, pointer, len, str_arr) {
+        if (current_node.child.has(current_char) && (pointer) < len) {
+            current_node = current_node.child.get(current_char);
+            current_char = str_arr[++pointer];
+            this.findChar(current_node, current_char, pointer, len, str_arr);
         } else {
-            if (pointer < len) return 0;
-            return currentNode.prefixes;
+            if (pointer < len) console.log(0);
+            else console.log(current_node.prefixes);
         }
     }
 }
 var trie = new Trie();
-// trie.insert('she');
 
-main("4\nadd hack\nadd hackerrank\nfind hac\nfind hak");
+main("10\nadd tree\nadd trie\nadd algo\nadd assoc\nadd all\nadd also\nfind tr\nfind a\nfind ass\nfind f");
