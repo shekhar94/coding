@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/contacts.js"
+            "program": "${workspaceFolder}/running_median.js"
         }
     ]
 }
