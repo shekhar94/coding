@@ -31,7 +31,7 @@ function getMedian(int_num) {
             let top_element = max_heap.pop();
             min_heap.add(top_element);
             max_heap.add(int_num);
-        } else if (int_num > median) {
+        } else if (int_num >= median) {
             min_heap.add(int_num);
         }
         median = getAvgMedian();
@@ -48,7 +48,7 @@ function getMedian(int_num) {
             let top_element = min_heap.pop();
             max_heap.add(top_element);
             min_heap.add(int_num);
-        } else if (int_num < median) {
+        } else if (int_num <= median) {
             max_heap.add(int_num);
         }
         median = getAvgMedian();
@@ -57,13 +57,13 @@ function getMedian(int_num) {
         // max_heap.size = min_heap.size
         // if int_num is < previous median
         // insert into max heap new median will be top element of max heap
-        // if int_num is < previous median
+        // if int_num is > previous median
         // insert into min heap new median will be top element of min heap
         if (int_num < median) {
             max_heap.add(int_num);
             median = max_heap.heap[0];
             console.log(scaleToOneDecimalPlace(median));
-        } else if (int_num > median) {
+        } else if (int_num >= median) {
             min_heap.add(int_num);
             median = min_heap.heap[0];
             console.log(scaleToOneDecimalPlace(median));
@@ -240,4 +240,5 @@ class MinHeap {
 var min_heap = new MinHeap();
 var median = 0;
 // main("10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10");
-main("6\n12\n4\n5\n3\n8\n7");
+// main("6\n12\n4\n5\n3\n8\n7");
+main("4\n5\n5\n5\n3\n3");
