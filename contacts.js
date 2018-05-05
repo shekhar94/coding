@@ -16,21 +16,25 @@ class Node {
         this.prefixes = 0;
         this.char = char;
         this.child = new Map();
-        this.is_end_of_word = false;
+        // this.is_end_of_word = false;
     }
 }
 class Trie {
     constructor() {
         this.root = new Node('*');
     }
+
     insert(str) {
-        let str_arr = str.split('');
-        let len = str_arr.length;
-        let current_node = this.root;
-        let pointer = 0;
-        let current_char = str_arr[pointer];
+
+        let str_arr = str.split(''),
+            len = str_arr.length,
+            current_node = this.root,
+            pointer = 0,
+            current_char = str_arr[pointer];
+
         this.insertChar(current_node, current_char, pointer, len, str_arr);
     }
+
     insertChar(current_node, current_char, pointer, len, str_arr) {
         if (current_node.child.has(current_char) && (pointer + 1) < len) {
             current_node = current_node.child.get(current_char);
@@ -39,9 +43,9 @@ class Trie {
             this.insertChar(current_node, current_char, pointer, len, str_arr);
         } else {
             let node = new Node(current_char);
-            if (pointer === len - 1) {
-                node.is_end_of_word = true;
-            }
+            // if (pointer === len - 1) {
+            //     node.is_end_of_word = true;
+            // }
             node.prefixes++;
             current_node.child.set(current_char, node);
             if ((pointer + 1) < len) {
@@ -53,14 +57,18 @@ class Trie {
             }
         }
     }
+
     find(str) {
-        let str_arr = str.split('');
-        let len = str_arr.length;
-        let current_node = this.root;
-        let pointer = 0;
-        let current_char = str_arr[pointer];
+
+        let str_arr = str.split(''),
+            len = str_arr.length,
+            current_node = this.root,
+            pointer = 0,
+            current_char = str_arr[pointer];
+
         this.findChar(current_node, current_char, pointer, len, str_arr);
     }
+
     findChar(current_node, current_char, pointer, len, str_arr) {
         if (current_node.child.has(current_char) && (pointer) < len) {
             current_node = current_node.child.get(current_char);
@@ -72,6 +80,7 @@ class Trie {
         }
     }
 }
+
 var trie = new Trie();
 
 main("10\nadd tree\nadd trie\nadd algo\nadd assoc\nadd all\nadd also\nfind tr\nfind a\nfind ass\nfind f");
