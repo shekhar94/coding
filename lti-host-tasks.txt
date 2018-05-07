@@ -1,0 +1,23 @@
+1. Build task update for separating test-rig-1.0 and test-rig-2.0
+-Remove _API from vendor
+-Untrack vendor files .gitignore
+-gulptask update for for new toolSide.js
+-Moving test-rig.html to intended folders(test-rig-1.0, test-rig-2.0)
+
+2. Adding support for test-rig-2.0
+-Add retrieve separated state textarea in testRig.html
+-Retrieve functionality
+-Tool side update to support retieve separated
+-Scoring logic update for getResults()
+-Merge author question with answer for supporting new api structure
+
+3. Host page skeleton (MHE tool capabilities)
+-.gitignore update for host page capability
+-Remove all hardcoded values from host-page-wrapper.js
+-Remove all dom access for getting data required for loading the tool
+-Write api call for getting state
+-Write api call for getting response
+-Write api call for getting results
+-Write api call for getting policies
+-Update context according to launch data
+-Write api call for saving response to persistent layer
