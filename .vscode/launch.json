@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/bubble_sort.js"
+            "program": "${workspaceFolder}/quick_sort.js"
         }
     ]
 }
