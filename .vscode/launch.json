@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "python",
+            "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/python/mergeSort.py"
+            "program": "${workspaceFolder}/binarySearch.js"
         }
     ]
 }
