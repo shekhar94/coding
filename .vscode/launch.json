@@ -8,7 +8,7 @@
             "type": "python",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/python/binarySearch.py"
+            "program": "${workspaceFolder}/HR-python/binarySearch.py"
         }
     ]
 }
