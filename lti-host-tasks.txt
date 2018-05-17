@@ -19,5 +19,21 @@
 -Write api call for getting response
 -Write api call for getting results
 -Write api call for getting policies
+-Create assignment functionality
 -Update context according to launch data
+-Edit assignment functionality
+-Avalon launch_assignment functionality
+-Adding new getResults api in persistent layer
+-Scoring logic update persistent layer
+-Question list integration with host page
 -Write api call for saving response to persistent layer
+-Add new form in lti-emulator for take assignment flow
+
+
+Host page rendering via LTI launcher service
+-Folder structure update for serving static assets
+-Embedding launch data in host page  
+-Api changes to support host page
+-Save student response api
+-Outcome api update
+-
