@@ -1,4 +1,5 @@
 # Author: Shekhar Suman 18-05-18
+# BFS and DFS implementation for graph
 import queue 
 class Node:
     def __init__(self, id):
