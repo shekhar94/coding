@@ -1,10 +1,13 @@
 /* 
-    Author: shekhar suman 
+    Author: shekhar suman  20/05/2018
 */
 
-// main("5\n2 4 4 2 4\n1 4 1 6 4");
-main("1\n1\n2");
+main("5\n2 4 4 2 4\n1 4 1 6 4");
+// main("1\n1\n2");
 
+/* 
+    Driver code
+*/
 function main(input) {
     let ip_arr = input.split("\n");
     let len = Number(input[0]);
@@ -13,6 +16,10 @@ function main(input) {
     findNoOfSalmon(len_arr, time_arr, len);
 }
 
+
+/* 
+    find overlapping salmon
+*/
 function findNoOfSalmon(len_arr, time_arr, len) {
     // if length diff >= distance diff then can be catched together
     let possibility_matrix = [];
@@ -41,13 +48,18 @@ function findNoOfSalmon(len_arr, time_arr, len) {
                 count_arr[j]++;
         }
     }
-    console.log(possibility_matrix, count_arr);
+    // console.log(possibility_matrix, count_arr);
     getCount(possibility_matrix, count_arr);
 }
 
+/* 
+    count the number of salmon caught in turn_1 and turn_2
+    TODO: print result
+*/
 function getCount(possibility_matrix, count_arr) {
     let turn_1_index = 0;
     let turn_1_count = count_arr[0];
+    let turn_2_count = 0;
     for (let i = 0; i < count_arr.length; i++) {
         if (count_arr[i] > turn_1_count) {
             turn_1_count = count_arr[i];
@@ -55,16 +67,15 @@ function getCount(possibility_matrix, count_arr) {
         }
     }
     if (count_arr.length > 1) {
-
         let catched_salmon_arr = [];
         for (let i = 0; i < possibility_matrix[turn_1_index].length; i++) {
             if (possibility_matrix[turn_1_index][i]) {
                 catched_salmon_arr[i] = true;
             }
         }
-        console.log(catched_salmon_arr, turn_1_index, turn_1_count);
+        // console.log(catched_salmon_arr, turn_1_index, turn_1_count);
         let turn_2_index;
-        let turn_2_count;
+        // let turn_2_count;
         if (turn_1_index !== 0) {
             turn_2_index = 0;
             turn_2_count = count_arr[0];
@@ -78,12 +89,15 @@ function getCount(possibility_matrix, count_arr) {
                 turn_2_count = count_arr[i];
             }
         }
-        console.log(catched_salmon_arr, turn_2_index, turn_2_count);
-        console.log(turn_1_count + turn_2_count);
+        // console.log(catched_salmon_arr, turn_2_index, turn_2_count);
+    } else {
+        turn_2_count = 0; // turn 2 not possible
     }
-    console.log(turn_1_count);
+    console.log(turn_1_count + turn_2_count);
 }
-
+/* 
+    TODO: function to check the two salmons are overlapping
+*/
 function check(len_i, time_i, len_j, time_j) {
     if (Math.abs(len_i - len_j) >= Math.abs(time_i - time_j)) {
         return true;
