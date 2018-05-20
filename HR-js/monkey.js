@@ -5,8 +5,8 @@
     Driver function
 */
 // test cases 
-main("3 100.0\n1 10 5 5\n5 10 5 1\n8 10 5 4");
-// main("3 100.0\n1 10 5 20\n5 10 5 20\n8 10 5 20");
+// main("3 100.0\n1 10 5 5\n5 10 5 1\n8 10 5 4");
+main("3 100.0\n1 10 5 20\n5 10 5 20\n8 10 5 20");
 
 
 function main(input) {
@@ -39,7 +39,7 @@ function findTrees(tree_node_arr, jumping_capacity) {
             index_arr.push(i); // if more than one tree has this situation then meeting no possible
             if (index_arr.length > 1) {
                 console.log(-1);
-                break;
+                return;
             }
         }
     }
