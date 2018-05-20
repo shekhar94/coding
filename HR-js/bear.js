@@ -2,15 +2,17 @@
     Author: shekhar suman  20/05/2018
 */
 
-main("5\n2 4 4 2 4\n1 4 1 6 4");
+// main("5\n2 4 4 2 4\n1 4 1 6 4");
 // main("1\n1\n2");
+// main("6\n1 2 3 1 4 2\n1 7 3 2 6 4");
+main("10\n4 8 3 7 9 2 6 8 1 1\n9 18 20 4 13 7 8 4 1 3");
 
 /* 
     Driver code
 */
 function main(input) {
     let ip_arr = input.split("\n");
-    let len = Number(input[0]);
+    let len = Number(ip_arr[0]);
     let len_arr = ip_arr[1].split(" ").map(Number);
     let time_arr = ip_arr[2].split(" ").map(Number);
     findNoOfSalmon(len_arr, time_arr, len);
@@ -31,6 +33,7 @@ function findNoOfSalmon(len_arr, time_arr, len) {
         if (!count_arr[i]) {
             count_arr[i] = 0;
         }
+        let isTwoSalmonCrossTogether;
         for (let j = i; j < len; j++) {
             isTwoSalmonCrossTogether = check(len_arr[i], time_arr[i], len_arr[j], time_arr[j]);
             possibility_matrix[i][j] = isTwoSalmonCrossTogether;
@@ -49,14 +52,14 @@ function findNoOfSalmon(len_arr, time_arr, len) {
         }
     }
     // console.log(possibility_matrix, count_arr);
-    getCount(possibility_matrix, count_arr);
+    getCount(possibility_matrix, count_arr, len);
 }
 
 /* 
     count the number of salmon caught in turn_1 and turn_2
     TODO: print result
 */
-function getCount(possibility_matrix, count_arr) {
+function getCount(possibility_matrix, count_arr, len) {
     let turn_1_index = 0;
     let turn_1_count = count_arr[0];
     let turn_2_count = 0;
@@ -75,16 +78,18 @@ function getCount(possibility_matrix, count_arr) {
         }
         // console.log(catched_salmon_arr, turn_1_index, turn_1_count);
         let turn_2_index;
-        // let turn_2_count;
-        if (turn_1_index !== 0) {
-            turn_2_index = 0;
-            turn_2_count = count_arr[0];
-        } else {
-            turn_2_index = 1;
-            turn_2_count = count_arr[1];
+        for (let i = 0; i < catched_salmon_arr.length; i++) {
+            if (catched_salmon_arr[i]) {
+                continue;
+            } else {
+                turn_2_index = i;
+                turn_2_count = count_arr[i];
+                break;
+            }
         }
+
         for (let i = 0; i < count_arr.length; i++) {
-            if (!catched_salmon_arr[i] && count_arr[i] > turn_2_count) {
+            if (!catched_salmon_arr[i] && count_arr[i] > turn_2_count && (count_arr[i] + turn_1_count) <= len && checkNoneOfCurrentGroupCatched(possibility_matrix[i])) {
                 turn_2_index = i;
                 turn_2_count = count_arr[i];
             }
@@ -94,6 +99,15 @@ function getCount(possibility_matrix, count_arr) {
         turn_2_count = 0; // turn 2 not possible
     }
     console.log(turn_1_count + turn_2_count);
+}
+
+function checkNoneOfCurrentGroupCatched(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]) { // catched
+            return false;
+        }
+    }
+    return true;
 }
 /* 
     TODO: function to check the two salmons are overlapping
