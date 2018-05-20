@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-            "-g", "hello.cpp"    
+            "-g", "graphSearch.cpp"
             ],
             "group": {
                 "kind": "build",
