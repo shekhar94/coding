@@ -1,0 +1,23 @@
+1. Added polyfills
+    <script type="text/javascript" src="_API/startsWith.js"></script>
+    <script type="text/javascript" src="_API/endsWith.js"></script>
+
+2. doit(): condition updated for adding query param
+    old:
+    
+     iFrameHTML += 'src="' + $('#identifier').val() + '?' + toolInstance + '" ';
+     
+    new:
+
+     var src = $('#identifier').val();
+     iFrameHTML += 'src="' + src + (src.indexOf("?") !== -1 ? '&' : '?') + 'toolInstance=' + toolInstance + '" ';
+    
+3. Added retrieve separated button and textarea for student response
+    <br>
+    <button onclick="retrieveSeparated();">Retrieve separated State</button>
+    <textarea name="separated_state" id="separated_state" rows="5" cols="50"></textarea>
+    <br>
+
+
+4. Added missing response textarea (above load separated button)
+    <textarea name="tool_response" id="tool_response" rows="2" cols="50">0</textarea>

@@ -1,0 +1,34 @@
+1. test-rig/1.0
+    -https://s3.amazonaws.com/tricontools/test-rig/1.0/test-rig.html
+    -load design mode
+    -create question
+    -copy question and keep for further ref
+    -load question in test mode
+    -record student response
+    -getState and load post test mode
+
+2. test-rig/2.0
+    -https://s3.amazonaws.com/tricontools/test-rig/2.0/testRig.html
+    -load design mode with saved question state
+    -load test mode with question
+    -record student response
+    -do retrieve separated
+    -copy the saved question state
+    -do load separated
+
+3. create assignment
+    -https://s3.amazonaws.com/tricontools/lti-emulator/index.html
+    -submit the create assignment form
+    -select a question
+    -copy the outcome id and keep it
+
+4. edit assignment
+    -use the outcome id
+    -show the old selected question
+    -select other question
+    -copy outcome id save it
+    -load edited assignment with new outcome id
+
+5. launch assignment
+    -use the latest outcome id 
+    -launch assignment
