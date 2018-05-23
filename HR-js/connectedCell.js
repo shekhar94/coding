@@ -45,7 +45,7 @@ function traverseFrom(row, col, visited, rowLen, colLen, matrix) {
     var count = 0;
     if (row < 0 || col < 0 || row >= rowLen || col >= colLen || !matrix[row][col] || (visited[row] && visited[row][col])) {
         // if 0 at this location no need to go further
-        return 0;
+        return count;
     }
     // if(matrix[row][col])
     // console.log("(", row, ",", col, ")");
