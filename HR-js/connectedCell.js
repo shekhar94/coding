@@ -1,10 +1,11 @@
 /* 
     Author: shekhar suman 22/05/2018
 */
-
 // https://www.hackerrank.com/challenges/ctci-connected-cell-in-a-grid/problem
 
-main("4\n4\n1 1 0 0\n0 1 1 0\n0 0 1 0\n1 0 0 0");
+// main("4\n4\n1 1 0 0\n0 1 1 0\n0 0 1 0\n1 0 0 0");
+main("5\n6\n1 1 1 1 0 0\n0 0 0 0 1 1\n1 0 1 0 0 1\n0 0 0 1 1 0\n1 1 0 0 0 0");
+// main("1\n1\n1");
 
 function main(input) {
     let ip_arr = input.split("\n");
@@ -44,7 +45,7 @@ function traverseFrom(row, col, visited, rowLen, colLen, matrix) {
     var count = 0;
     if (row < 0 || col < 0 || row >= rowLen || col >= colLen || !matrix[row][col] || (visited[row] && visited[row][col])) {
         // if 0 at this location no need to go further
-        return count;
+        return 0;
     }
     // if(matrix[row][col])
     // console.log("(", row, ",", col, ")");
@@ -57,11 +58,11 @@ function traverseFrom(row, col, visited, rowLen, colLen, matrix) {
         traverseFrom(row, col - 1, visited, rowLen, colLen, matrix) +
         traverseFrom(row - 1, col, visited, rowLen, colLen, matrix) +
         traverseFrom(row - 1, col - 1, visited, rowLen, colLen, matrix) +
-        traverseFrom(row, col - 1, visited, rowLen, colLen, matrix) +
+        traverseFrom(row - 1, col + 1, visited, rowLen, colLen, matrix) +
         traverseFrom(row, col + 1, visited, rowLen, colLen, matrix) +
         traverseFrom(row + 1, col, visited, rowLen, colLen, matrix) +
         traverseFrom(row + 1, col + 1, visited, rowLen, colLen, matrix) +
-        traverseFrom(row, col + 1, visited, rowLen, colLen, matrix)
+        traverseFrom(row + 1, col - 1, visited, rowLen, colLen, matrix)
     );
     return count;
 }
