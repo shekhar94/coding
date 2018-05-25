@@ -30,7 +30,6 @@ class Graph {
     BFS(source) {
         let queue = [];
         let visited = new Map();
-        let i = 0;
         let distance = new Map();
         let level = 0;
         let no_of_node_this_level = 1;
@@ -38,17 +37,17 @@ class Graph {
         while (queue.length > 0) {
             let node = queue.shift();
             no_of_node_this_level--;
-            if (visited.has(node.id))
-                continue;
-            visited.set(node.id, true);
-            // console.log(node.id, "distance->", level);
-            distance.set(node.id, level);
-            i++;
-            for (let i = 0; i < node.adjacent.length; i++) {
-                if (!visited.has(node.adjacent[i].id))
-                    queue.push(node.adjacent[i]);
+            if (!visited.has(node.id)) {
+                for (let i = 0; i < node.adjacent.length; i++) {
+                    if (!visited.has(node.adjacent[i].id)) {
+                        queue.push(node.adjacent[i]);
+                    }
+                }
+                distance.set(node.id, level);
+                visited.set(node.id, true);
             }
-            if (no_of_node_this_level === 0) {
+            // console.log(node.id, "distance->", level);           
+            if (no_of_node_this_level === 0) { // for tracking level info
                 no_of_node_this_level = queue.length;
                 level++;
             }
