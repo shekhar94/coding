@@ -2,8 +2,6 @@
     https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach/problem
     Author: shekhar
 */
-
-
 class Node {
     constructor(id, adjacent) {
         this.id = id;

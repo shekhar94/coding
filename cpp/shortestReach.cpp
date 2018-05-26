@@ -7,7 +7,8 @@ class Graph {
         int n = 0;
 
         Graph(int n) {
-            n = n;
+            this -> n = n;
+            graph.resize(n);
         }
 
         void add_edge(int u, int v) {
@@ -25,6 +26,7 @@ class Graph {
 
             while(!q.empty()) {
                 int node = q.front();
+                q.pop();
                 noOfNodesAtThisLevel--;
                 
                 if (!visited[node]) {
@@ -32,21 +34,23 @@ class Graph {
                         q.push(graph[node][i]);
                     }
                     visited[node] = true;
-                    map.insert(pair <int, int> (node, level));
+                    distance.insert(pair <int, int> (node, level));
                 }
                 if (!noOfNodesAtThisLevel) { // == 0 -> false
                     noOfNodesAtThisLevel = q.size();
                     level++;
                 }
             }
-            return get_distance_vector(distance, start);
+            vector<int> distanceVector = get_distance_vector(distance, start);
+            return distanceVector;
         }
-        vector<int> get_distance_vector(map<int, int> distance, int start) {
+        vector<int> get_distance_vector(map<int, int> &distance, int start) {
             vector<int> distanceVector;
             for (int i = 0; i < n; i++) {
-                map<int, int> it = distance.find(i);
-                if (i != start && it != map.end()) {
-                    distanceVector.push_back(distance.find(i) * 6);
+                map<int, int>::iterator it = distance.find(i);
+                if (i != start && it != distance.end()) {
+                    int d = (distance.find(i) -> second) * 6;
+                    distanceVector.push_back(d);
                 } else if (i != start) {
                     distanceVector.push_back(-1);
                 }
@@ -56,34 +60,18 @@ class Graph {
 };
 
 int main() {
-    int queries;
-    cin >> queries;
+    int queries = 1;
         
     for (int t = 0; t < queries; t++) {
-      
-		int n, m;
-        cin >> n;
-        // Create a graph of size n where each edge weight is 6: 
+		int n = 4, m = 2;
         Graph graph(n);
-        cin >> m;
-        // read and set edges
-        for (int i = 0; i < m; i++) {
-            int u, v;
-            cin >> u >> v;
-            u--, v--;
-            // add each edge to the graph
-            graph.add_edge(u, v);
-        }
-		int startId;
-        cin >> startId;
-        startId--;
-        // Find shortest reach from node s
+        graph.add_edge(0, 1);
+        graph.add_edge(0, 2);
+		int startId = 0;
         vector<int> distances = graph.shortest_reach(startId);
 
         for (int i = 0; i < distances.size(); i++) {
-            if (i != startId) {
-                cout << distances[i] << " ";
-            }
+            cout << distances[i] << " ";
         }
         cout << endl;
     }
