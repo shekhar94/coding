@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-            "-g", "graphSearch.cpp"
+            "-g", "shortestReach.cpp"
             ],
             "group": {
                 "kind": "build",
