@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "python",
+            "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/HR-python/shortestReach.py"
+            "program": "${workspaceFolder}/HR-js/recursion.js"
         }
     ]
 }
