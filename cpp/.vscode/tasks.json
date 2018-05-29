@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-            "-g", "shortestReach.cpp"
+            "-g", "recursion.cpp"
             ],
             "group": {
                 "kind": "build",
