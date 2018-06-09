@@ -52,7 +52,9 @@
         "tuple": "cpp",
         "typeindex": "cpp",
         "utility": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "vector": "cpp",
+        "deque": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "C_Cpp.intelliSenseEngineFallback": "Enabled"
