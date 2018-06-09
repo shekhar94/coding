@@ -8,5 +8,8 @@ package main
 import "fmt"
 
 func main() {
+	var age int
+	age = 24
+	fmt.Printf("%d", age)
 	fmt.Printf("Hello, world\n")
 }
