@@ -1,3 +1,4 @@
+/*jshint esversion:6*/
 // https://www.hackerrank.com/challenges/equal/problem
 // Author: Shekhar Suman 11/06/2018
 function main(input) {
