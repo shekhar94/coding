@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/HR-js/lonelyInteger.js"
+            "program": "${workspaceFolder}/HR-js/dp/creak-pass.js"
         }
     ]
 }
