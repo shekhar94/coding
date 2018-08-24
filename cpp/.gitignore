@@ -1,1 +1,3 @@
 a.exe
+# git rm -r --cached .
+# git add .
