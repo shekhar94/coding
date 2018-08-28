@@ -4,50 +4,24 @@ function main() {
         ['n', 'j', 'k', 'm'],
         ['e', 'f', 'q', 'z']
     ];
-    let target_string = 'abjfqz';
+    let target_string = 'abjfqzt';
     console.log(find_path(matrix, target_string))
 }
 
 function find_path(matrix, target_string) {
     let target_char_arr = target_string.split('');
-    let i = 0,
-        j = 0;
-    let flag = (matrix[i][j] === target_char_arr[0]);
-    let index = 1;
-    let path = ''
-    find_path_helper(matrix, target_char_arr, i, j, index);
-    // if (!flag) return 'NO PATH';
-    // while (flag) {
-    //     if (matrix[i][j + 1] === target_char_arr[index]) {
-    //         path = path.concat('R');
-    //         j = j + 1;
-    //     } else if (matrix[i + 1][j] === target_char_arr[index]) {
-    //         path = path.concat('D');
-    //         i = i + 1;
-    //     } else {
-    //         flag = false;
-    //     }
-    //     index++;
-    // }
-    // if (index === target_char_arr.length - 1) return 'NO PATH';
-    return path;
+    let path = find_path_helper(matrix, target_char_arr, 0, 0, 0, '');
+    if (path === false) return 'NO PATH';
+    else return path;
 }
 
-function find_path_helper(matrix, target_char_arr, i, j, index) {
-    if (index === target_char_arr.length - 1) return true;
-    let path = '';
-    if (target_char_arr[index] === matrix[i][j + 1]) {
-        index++;
-        path = path.concat('R');
-        console.log(path);
-        return find_path_helper(matrix, target_char_arr, i, j + 1, index);
-    }
-    if (target_char_arr[index] === matrix[i + 1][j]) {
-        index++;
-        path = path.concat('D');
-        console.log(path);
-        return find_path_helper(matrix, target_char_arr, i + 1, j, index);
-    }
-    return false;
+function find_path_helper(matrix, target_char_arr, i, j, index, path) {
+    if (i >= matrix.length || j >= matrix[i].length) return path.substring(0, path.length - 1);
+    if (index >= target_char_arr.length || target_char_arr[index] !== matrix[i][j]) return false;
+    let p_r = find_path_helper(matrix, target_char_arr, i, j + 1, index + 1, path.concat('R'));
+    let p_d = find_path_helper(matrix, target_char_arr, i + 1, j, index + 1, path.concat('D'));
+    if (p_r.length === target_char_arr.length - 1) return p_r;
+    else if (p_d.length === target_char_arr.length - 1) return p_d;
+    else return false;
 }
 main();
