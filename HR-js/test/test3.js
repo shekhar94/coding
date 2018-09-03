@@ -4,7 +4,7 @@ function main() {
         ['n', 'j', 'k', 'm'],
         ['e', 'f', 'q', 'z']
     ];
-    let target_string = 'abjfqzt';
+    let target_string = 'abjfqz';
     console.log(find_path(matrix, target_string))
 }
 
