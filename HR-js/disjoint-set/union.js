@@ -1,5 +1,5 @@
 /*jshint esversion:6*/
-
+// https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/
 function main(input) {
     let ip_arr = input.split('\n'),
         NM = ip_arr[0].split(' ').map(Number),
@@ -11,24 +11,35 @@ function main(input) {
     for (let i = 0; i < NM[1]; i++) {
         let edge = ip_arr[i + 1].split(' ').map(Number);
         weighted_union(arr, size_arr, edge[0] - 1, edge[1] - 1);
-        console.log('arr => ', arr);
-        console.log('size_arr => ', size_arr);
-        // let temp_size = find_connected(size_arr.slice().sort(), NM[0]).join(' ');
-        // let temp_size = size_arr.slice();
-        // delete temp_size[edge[0] - 1];
-        // console.log(temp_size);
-        // process.stdout.write(temp_size[edge[0] - 1]);
-        // process.stdout.write('\n');
+        // console.log('arr => ', arr);
+        // console.log('size_arr => ', size_arr);
+        let temp_size = find_connected(arr, NM[0]).join(' ');
+        console.log(temp_size);
     }
 }
 
-function find_connected(arr) {
-    let disjoint_sets = [];
+function find_connected(arr, N) {
+    let disjoint_sets = new Map();
     let visited = new Map();
     for (let i = 0; i < N; i++) {
         if (visited.has(i)) continue;
-
+        visited.set(i, true);
+        let root_i = root(arr, i);
+        if (disjoint_sets.has(root_i)) {
+            disjoint_sets.set(root_i, disjoint_sets.get(root_i) + 1);
+        } else {
+            disjoint_sets.set(root_i, 1);
+        }
     }
+    // console.log(disjoint_sets);
+    let it = disjoint_sets.values();
+    let size_arr = [];
+    let pointer = it.next();
+    while (!pointer.done) {
+        size_arr.push(pointer.value);
+        pointer = it.next();
+    }
+    return size_arr.sort((a, b) => a - b);
 }
 
 function init(arr, size_arr, N) {
