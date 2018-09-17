@@ -1,21 +1,34 @@
 /*jshint esversion:6*/
-// https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/
+// https://www.hackerrank.com/challenges/components-in-graph/problem
 function main(input) {
     let ip_arr = input.split('\n'),
-        NM = ip_arr[0].split(' ').map(Number),
+        N = Number(ip_arr[0]),
         arr = [],
-        size_arr = [],
-        deleted = {};
+        size_arr = [];
 
-    init(arr, size_arr, NM[0]);
-    for (let i = 0; i < NM[1]; i++) {
+    init(arr, size_arr, N * 2);
+    for (let i = 0; i < N; i++) {
         let edge = ip_arr[i + 1].split(' ').map(Number);
         weighted_union(arr, size_arr, edge[0] - 1, edge[1] - 1);
         // console.log('arr => ', arr);
         // console.log('size_arr => ', size_arr);
-        let temp_size = find_connected(arr, NM[0]).join(' ');
-        console.log(temp_size);
+        // console.log(temp_size);
     }
+    find_smallest_largest(find_connected(arr, N * 2))
+}
+
+function find_smallest_largest(size_arr) {
+    let smallest = 0;
+    let largest = -Infinity;
+    for (let i = 0; i < size_arr.length; i++) {
+        if (size_arr[i] > largest)
+            largest = size_arr[i];
+        if (size_arr[i] > 1 &&
+            ((smallest > size_arr[i]) ||
+                (smallest === 0)))
+            smallest = size_arr[i];
+    }
+    console.log(smallest + ' ' + largest);
 }
 
 function find_connected(arr, N) {
@@ -39,7 +52,7 @@ function find_connected(arr, N) {
         size_arr.push(pointer.value);
         pointer = it.next();
     }
-    return size_arr.sort((a, b) => a - b);
+    return size_arr;
 }
 
 function init(arr, size_arr, N) {
@@ -74,4 +87,4 @@ function weighted_union(arr, size_arr, a, b) {
         size_arr[root_b] += size_arr[root_a];
     }
 }
-main("5 4\n1 2\n3 4\n4 5\n1 3");
+main("5\n1 6\n2 7\n3 8\n4 9\n2 6");
