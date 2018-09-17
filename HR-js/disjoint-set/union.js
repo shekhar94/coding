@@ -13,22 +13,29 @@ function main(input) {
         weighted_union(arr, size_arr, edge[0] - 1, edge[1] - 1);
         console.log('arr => ', arr);
         console.log('size_arr => ', size_arr);
-        // let temp_size = find_connected(size_arr.slice().sort(), NM[0]).join(' ');
+        let temp_size = find_connected(arr, NM[0]);
         // let temp_size = size_arr.slice();
         // delete temp_size[edge[0] - 1];
-        // console.log(temp_size);
+        console.log(temp_size);
         // process.stdout.write(temp_size[edge[0] - 1]);
         // process.stdout.write('\n');
     }
 }
 
-function find_connected(arr) {
-    let disjoint_sets = [];
+function find_connected(arr, N) {
+    let disjoint_sets = new Map();
     let visited = new Map();
     for (let i = 0; i < N; i++) {
         if (visited.has(i)) continue;
-
+        if (disjoint_sets.has(arr[i]))
+            disjoint_sets.set(arr[i], disjoint_sets.get(arr[i]) + 1);
+        else disjoint_sets.set(arr[i], 1);
+        visited.set(i, true);
     }
+    let size_arr = [];
+    let it = disjoint_sets.values();
+    while (!it.next().done) size_arr.push(it.next().value)
+    return size_arr.sort();
 }
 
 function init(arr, size_arr, N) {
