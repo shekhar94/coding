@@ -72,11 +72,6 @@ function root(arr, i) {
     return i;
 }
 
-function find(arr, a, b) {
-    if (arr[a] === arr[b]) return true;
-    return false;
-}
-
 function weighted_union(arr, size_arr, a, b) {
     let root_a = root(arr, a);
     let root_b = root(arr, b);
