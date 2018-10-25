@@ -2,13 +2,16 @@
 // https://www.hackerrank.com/challenges/maximum-cost-queries/problem
 function main(input) {
     let ip_arr = input.split('\n'),
-        NM = ip_arr[0].split(' ').map(Number),
+        NQ = ip_arr[0].split(' ').map(Number),
+        N = NQ[0],
+        Q = NQ[1],
         arr = [],
         size_arr = [];
 
     init(arr, size_arr, NM[0]);
-    for (let i = 0; i < NM[1]; i++) {
-        let edge = ip_arr[i + 1].split(' ').map(Number);
+    for (let i = 0; i < N - 1; i++) {
+        let edge = ip_arr[i + 1].split(' ').map(Number),
+            weight = edge[2];
         weighted_union(arr, size_arr, edge[0] - 1, edge[1] - 1);
         // console.log('arr => ', arr);
         // console.log('size_arr => ', size_arr);
@@ -72,4 +75,4 @@ function weighted_union(arr, size_arr, a, b) {
         size_arr[root_b] += size_arr[root_a];
     }
 }
-main("5 4\n1 2\n3 4\n4 5\n1 3");
+main("5 5\n1 2 3\n1 4 2\n2 5 6\n3 4 1\n1 1\n1 2\n2 3\n2 5\n1 6");
