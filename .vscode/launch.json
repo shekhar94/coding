@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/HR-js/disjoint-set/union.js"
+            "program": "${workspaceFolder}/HR-js/heap/qheap1.js"
         }
     ]
 }
