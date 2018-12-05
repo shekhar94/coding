@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "python3",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/HR-js/heap/qheap1.js"
+            "program": "${workspaceFolder}/geeks/kadanes.py"
         }
     ]
 }
