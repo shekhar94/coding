@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/HE-circuts/create-bst.js"
+      "program": "${workspaceFolder}/HE-circuts/max-in-queue.js"
     }
   ]
 }
