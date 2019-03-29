@@ -1,8 +1,20 @@
+/* 
+Implement queue using two stacks
+Sample input 
+First line of input represents number of queries 't'
+Then next t lines contains queries
+where first entry of query is a number representing 
+operation and second entry as the value to be used
+1. enqueue
+2. dequeue
+3. print the first element
+*/
+
 function main(input) {
   const ip_arr = input.split("\n");
   const q = Number(ip_arr[0]);
-  const stack1 = [];
-  const stack2 = [];
+  const stack1 = []; // tail of queue
+  const stack2 = []; // head of the queue
   for (let i = 0; i <= q; i++) {
     const query = ip_arr[i].split(" ").map(Number);
     switch (query[0]) {
