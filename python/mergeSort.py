@@ -1,9 +1,11 @@
+count = 0
+
 def main():
-    n = 7
-    arr = [2, 1, 3, 1, 2, 5, 0]
+    n = 5
+    arr = [2, 1, 3, 1, 2]
     tmp = list(range(n))
     merge_sort(arr, tmp, 0, n - 1)
-    print(arr)
+    print(arr, count)
 
 def merge_sort(arr, tmp, left_start, right_end):
     if left_start >= right_end:
@@ -14,6 +16,7 @@ def merge_sort(arr, tmp, left_start, right_end):
     merge_halves(arr, tmp, left_start, right_end)
 
 def merge_halves(arr, tmp, left_start, right_end):
+    global count
     left = left_start
     index = left_start
     left_end = (left_start + right_end) / 2
@@ -26,6 +29,7 @@ def merge_halves(arr, tmp, left_start, right_end):
         else:
             tmp[index] = arr[right]
             right += 1
+            count += 1
         index += 1
     copy_arr(arr, left, tmp, index, left_end - left + 1)
     copy_arr(arr, right, tmp, index, right_end - right + 1)
