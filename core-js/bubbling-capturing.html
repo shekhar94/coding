@@ -1,0 +1,19 @@
+<div id="div-external" style="height: 300px; width: 300px; background-color: green;">
+    <div id="div-internal" style="height: 200px; width: 200px; background-color: blue;">
+        <div id="div-root" style="height: 100px; width: 100px; background-color: yellow;"></div>
+    </div>
+    <script>
+        var externalDiv = document.getElementById('div-external');
+        var internalDiv = document.getElementById('div-internal');
+        var rootDiv = document.getElementById('div-root');
+        externalDiv.addEventListener('click', (event => {
+            console.log('clicked on external div');
+        }), true);
+        internalDiv.addEventListener('click', (event => {
+            console.log('clicked on internal div');
+        }), true);
+        rootDiv.addEventListener('click', (event => {
+            console.log('clicked on root div');
+        }), true);
+    </script>
+</div>

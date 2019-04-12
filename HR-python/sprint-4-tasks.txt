@@ -1,0 +1,15 @@
+Host page - Implement host page API interfaces for back-end communication
+-Update form post parameters dynamically (after outcome api call completion) / assignee:"@current"
+-Add support for multiple question selection in host page / assignee:"@current"
+-Switch between tool instances as user selects a different question / assignee:"@current"
+-Add support for assignment preview (listing the selected questions) in host page / assignee:"@current"
+-Add support for delete question from assignment preview page / assignee:"@current"
+
+As a student I should be able to launch to launcher platform and take the assignment in given tool
+-Save student response interface / assignee:"@current"
+-Get results interface / assignee:"@current"
+-Remove separation logic for question and correct answer from backend / assignee:"@current"
+-Get question data based on outcome id retrieved from launch data  / assignee:"@current"
+-Load tool with question (launch_assignment) / assignee:"@current"
+-Update backend api for post student response / assignee:"@current"
+-Write API for get results / assignee:"@current"

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tab-container {
+            display: flex;
+        }
+
+        .tab {
+            margin-right: 10px;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        .active {
+            border-bottom: 2px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <div class="tab" id="tabA">Tab A</div>
+        <div class="tab" id="tabB">Tab B</div>
+        <div class="tab" id="tabC">Tab C</div>
+    </div>
+    <div class="content">
+        <div id="tabAc">Tab A content</div>
+        <div id="tabBc">Tab b content</div>
+        <div id="tabCc">Tab c content</div>
+    </div>
+    <script>
+        (function () {
+            const tabA = document.getElementById('tabA');
+            const tabB = document.getElementById('tabB');
+            const tabC = document.getElementById('tabC');
+            const tabAc = document.getElementById('tabAc');
+            const tabBc = document.getElementById('tabBc');
+            const tabCc = document.getElementById('tabCc');
+
+            function setDefaultView() {
+                setContentVisibilityAndActiveTab(tabAc, tabBc, tabCc, tabA, tabB, tabC);
+            }
+
+            function setContentVisibilityAndActiveTab(activeTabEle, hiddenTabEle1, hiddenTabEle2, activeTab, hiddenTab1, hiddenTab2) {
+                showContent(activeTabEle);
+                hideContent(hiddenTabEle1);
+                hideContent(hiddenTabEle2);
+                addClass(activeTab, 'active');
+                removeClass(hiddenTab1, 'active');
+                removeClass(hiddenTab2, 'active');
+            }
+
+            function addClass(ele, className) {
+                ele.classList.add(className);
+            }
+
+            function removeClass(ele, className) {
+                ele.classList.remove(className);
+            }
+
+            function hideContent(ele) {
+                ele.style.display = 'none';
+            }
+
+            function showContent(ele) {
+                ele.style.display = '';
+            }
+
+            tabA.addEventListener('click', (e) => {
+                setContentVisibilityAndActiveTab(tabAc, tabBc, tabCc, tabA, tabB, tabC);
+            });
+
+            tabB.addEventListener('click', (e) => {
+                setContentVisibilityAndActiveTab(tabBc, tabAc, tabCc, tabB, tabA, tabC);
+            });
+
+            tabC.addEventListener('click', (e) => {
+                setContentVisibilityAndActiveTab(tabCc, tabAc, tabBc, tabC, tabA, tabB);
+            });
+
+            setDefaultView();
+
+        })();
+
+    </script>
+</body>
+
+</html>
