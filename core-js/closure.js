@@ -1,5 +1,6 @@
 // A closure is the combination of a function and the lexical environment within which that function was declared.
 // This environment consists of any local variables that were in-scope at the time the closure was created. 
+
 // If an element has multiple event handlers on a single event, then even if one of them stops the bubbling, the other ones still execute.
 
 // In other words, event.stopPropagation() stops the move upwards, but on the current 
