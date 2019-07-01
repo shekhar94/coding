@@ -1,8 +1,11 @@
 // C++ program to find maximum amount of water that can
 // be trapped within given set of bars.
-// Space Complexity : O(1)
+// Space Complexity : O(n)
+// Time Complexity : O(n)
 // https://www.geeksforgeeks.org/trapping-rain-water/
 
+
+// TODO: space optimized solution
 #include <iostream>
 using namespace std;
 
