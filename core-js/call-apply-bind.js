@@ -4,25 +4,42 @@
 // position relative, absolute
 // implement bind function
 // Promise race
+// async and differ
+// What is used to load script files in web (optimization)
+// float left right css
+// memoized function
+// display flex
+// difference between inline and inline-block
+// check if object string is balanced and a valid json object
+// e.g: "{a: 1, b: [1, 2, 3], c: { d: 3 }}"
 
-// center align child div
-// child div can be moved
-// inside parent 
-// (write scalable css so that with 
-// minor change child can be moved)
+{/* <div class="wrapper">
+    <div class="child">
+        <p>
+            Some text center aligned
+            button takes some height at bottom 
+            of child div. Text inside should be center aligned 
+            in remaining area
 
-// <div class="parent">
-//     <div class="child"></div>
-// </div>
+            Whole block is inside child
+            ------------------------
+                Text should be center 
+                aligned here
 
-// .parent {
+            ------------------------
+                Right aligned Button
+            ------------------------
 
-// }
-// .child {
+        </p>
+        <button class="btn">Btn</button>
+    </div>
+</div> */}
 
-// }
 
 
+// flux facebook
+// redux
+// deep clone object (deep cloning vs swallow cloning)
 // css box model
 // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
 // Grid layout
@@ -87,3 +104,6 @@ Function.prototype.myBind = function (context) {
         func.apply(context, combinedArgs);
     }
 }
+
+
+

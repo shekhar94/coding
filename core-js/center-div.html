@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .wrapper {
+        position: absolute;
+        background: #fff;
+        height: 200px;
+        width: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid black;
+      }
+      .one {
+        background: grey;
+        color: #fff;
+        height: 100px;
+        width: 100px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    center align child div child div can be moved
+    inside parent (write scalable css so that with minor change child can be moved)
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+    .parent {
+
+    }
+    .child {
+
+    }
+       -->
+    <div class="wrapper">
+      <div class="one">One</div>
+    </div>
+  </body>
+</html>
