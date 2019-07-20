@@ -39,3 +39,5 @@ class Teacher1 extends Person1 {
 }
 var t = new Teacher1("Tricon", "Shekhar");
 console.log(t.getName(), t.org);
+
+// difference between prototype and __proto__
