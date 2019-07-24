@@ -12,6 +12,10 @@
 // difference between inline and inline-block
 // check if object string is balanced and a valid json object
 // e.g: "{a: 1, b: [1, 2, 3], c: { d: 3 }}"
+// what is prototype and how it works in javascript
+// how to make a function available on other function without using 
+// prototype
+
 
 {/* <div class="wrapper">
     <div class="child">
