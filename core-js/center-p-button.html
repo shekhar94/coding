@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .child {
+            position: absolute;
+            border: 2px solid green;
+            height: 400px;
+            width: 400px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .para-c {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border: 1px solid red;
+        }
+
+        .para {
+            margin: 0 auto;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .btn {
+            background: grey;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            float: right;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <div class="child">
+            <div class="para-c">
+                <div class="para">para some text</div>
+            </div>
+            <div>
+                <button class="btn">Button</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--  <div class="wrapper">
+    <div class="child">
+        <p>
+            Some text center aligned
+            button takes some height at bottom 
+            of child div. Text inside should be center aligned 
+            in remaining area
+
+            Whole block is inside child
+            ------------------------
+                Text should be center 
+                aligned here
+
+            ------------------------
+                Right aligned Button
+            ------------------------
+
+        </p>
+        <button class="btn">Btn</button>
+    </div>
+</div>  -->
