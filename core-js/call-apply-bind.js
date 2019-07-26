@@ -17,27 +17,7 @@
 // prototype
 
 
-{/* <div class="wrapper">
-    <div class="child">
-        <p>
-            Some text center aligned
-            button takes some height at bottom 
-            of child div. Text inside should be center aligned 
-            in remaining area
 
-            Whole block is inside child
-            ------------------------
-                Text should be center 
-                aligned here
-
-            ------------------------
-                Right aligned Button
-            ------------------------
-
-        </p>
-        <button class="btn">Btn</button>
-    </div>
-</div> */}
 
 
 
