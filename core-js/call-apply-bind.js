@@ -9,6 +9,9 @@
 // float left right css
 // memoized function
 // display flex
+// if const is an object and inside object I will try to change the value will it work
+// if this works and value can be changed then how to fix values inside object so that it
+// can't be changed
 // difference between inline and inline-block
 // check if object string is balanced and a valid json object
 // e.g: "{a: 1, b: [1, 2, 3], c: { d: 3 }}"
@@ -30,6 +33,16 @@
 // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 
 // https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf
+
+{/* 
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta> 
+
+Within the tag the width property controls the size of the viewport. It can be set either to a precise number of pixels like width=400 or to the special value device-width value which is the width of the screen in CSS pixels at a scale of 100%. device-width is the most commonly used width for responsive websites that scale across different screen sizes.
+
+When the page is first loaded the initial-scale property controls the initial zoom level ie 1 Viewport pixel = 1 CSS pixel. User-scalable, maximum-scale and minimum-scale properties control how the user is able to zoom the page in or out.
+
+You could setup an example html page and include the viewport tag and change the initial-scale attribute to see the difference. Also try viewing the page on different viewport sizes and orientation.
+*/}
 
 
 function debounce(fun, delay) {

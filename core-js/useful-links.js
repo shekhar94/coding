@@ -51,7 +51,7 @@ window.history.back();
 window.history.forward();
 window.history.go(-1); current page: 0
 
-refresh shame page
+refresh same page
 window.history.go(0);//the same like:
 window.history.go();
 

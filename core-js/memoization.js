@@ -2,9 +2,13 @@
 
 
 /* 
-Memoization is an optimization technique that speeds up applications by storing the results of expensive function calls and returning the cached result when the same inputs are supplied again. 
+Memoization is an optimization technique that speeds up applications 
+by storing the results of expensive function calls and returning 
+the cached result when the same inputs are supplied again. 
 
-Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions.
+Functions that operate on other functions, 
+either by taking them as arguments or by returning them, 
+are called higher-order functions.
 */
 
 function memo(fun) {
