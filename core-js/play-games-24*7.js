@@ -35,7 +35,7 @@ let fun = function () {
 let fun = () => {
     console.log(arguments);
 }
-8. How we can achieve object oriented behaviour in js (incapsulation, inheritance, polymorphism)
+8. How we can achieve object oriented behaviour in js (encapsulation, inheritance, polymorphism)
 9. Providers in angular (injecting service and using it)
 If a service is in provider list of parent module can we use it in child component(inject it)
 If a service is in provider list in sibling module can we use it in other sibling

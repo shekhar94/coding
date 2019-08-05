@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .button {
+        display: inline-block;
+        border-radius: 3px;
+        padding: 7px 12px;
+        border: 1px solid #d5d5d5;
+        background-image: linear-gradient(#eee, #ddd);
+        font: 700 13px/18px Helvetica, arial;
+      }
+      /* block--modifier-value */
+      .button--state-success {
+        color: #fff;
+        background: #569e3d linear-gradient(#79d858, #569e3d) repeat-x;
+        border-color: #4a993e;
+      }
+      .button--state-danger {
+        color: #900;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+            BEM
+            
+            Block: Standalone entity that is meaningful on its own.
+            header, container, menu, checkbox, input
+
+            Element: A part of a block that has no standalone 
+            meaning and is semantically tied to its block.
+            menu item, list item, checkbox caption, header title
+
+            Modifier: A flag on a block or element. Use them to change appearance or behavior.
+            disabled, highlighted, checked, fixed, size big, color yellow
+
+         -->
+    <button class="button">
+      Normal button
+    </button>
+    <button class="button button--state-success">
+      Success button
+    </button>
+    <button class="button button--state-danger">
+      Danger button
+    </button>
+  </body>
+</html>

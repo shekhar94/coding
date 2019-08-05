@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+
+  <body>
+    <!-- 
+
+        Prefer keeping the scripts tags in the head section with async
+        attribute for third party libraries which are in-depended like 
+        Google Analytics, Google reCAPTCHA or anything else which doesn’t 
+        need DOM access as the respective scripts are downloaded in 
+        parallel but executed immediately.
+
+
+        Use defer for all the other scripts loaded in head section as 
+        these will also be downloaded in parallel but executed only after 
+        HTML parsing has completed and DOM is ready for access/manipulation.
+
+
+        You can also utilize combining DOMContentLoaded listener 
+        inside async scripts to execute the functionality later.
+       -->
+    <script>
+      window.addEventListener("DOMContentLoaded", event => {
+        console.log("DOM fully loaded and parsed");
+      });
+    </script>
+  </body>
+</html>

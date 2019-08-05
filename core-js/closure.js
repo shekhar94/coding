@@ -1,7 +1,11 @@
-// A closure is the combination of a function and the lexical environment within which that function was declared.
-// This environment consists of any local variables that were in-scope at the time the closure was created. 
+// A closure is the combination of a function and the lexical environment 
+// within which that function was declared.
 
-// If an element has multiple event handlers on a single event, then even if one of them stops the bubbling, the other ones still execute.
+// This environment consists of any local variables that 
+// were in-scope at the time the closure was created. 
+
+// If an element has multiple event handlers on a single event, 
+// then even if one of them stops the bubbling, the other ones still execute.
 
 // In other words, event.stopPropagation() stops the move upwards, but on the current 
 // element all other handlers will run.
@@ -50,15 +54,20 @@ and addEventListener without the 3rd argument or with the 3rd argument false.
 Each handler can access event object properties:
 
 event.target – the deepest element that originated the event.
-event.currentTarget (=this) – the current element that handles the event (the one that has the handler on it)
+event.currentTarget (=this) – the current element that handles the event 
+(the one that has the handler on it)
 event.eventPhase – the current phase (capturing=1, bubbling=3).
-Any event handler can stop the event by calling event.stopPropagation(), but that’s not recommended,
- because we can’t really be sure we won’t need it above, maybe for completely different things.
+Any event handler can stop the event by calling event.stopPropagation(), 
+but that’s not recommended,
+ because we can’t really be sure we won’t need it above, 
+ maybe for completely different things.
 
-The capturing phase is used very rarely, usually we handle events on bubbling. And there’s a logic
+The capturing phase is used very rarely, usually we handle events on bubbling. 
+And there’s a logic
  behind that.
 
-In real world, when an accident happens, local authorities react first. They know best the area where
+In real world, when an accident happens, local authorities react first. 
+They know best the area where
  it happened. Then higher-level authorities if needed.
 
 The same for event handlers. The code that set the handler on a particular element knows maximum details 

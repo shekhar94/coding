@@ -85,6 +85,11 @@ window.onpopstate = function(event) {
   alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
 };
 
+How to navigate to a url using history api
+history.pushState({data: 'data'}, 'new route', 'http://stackoverflow.com/someurl')
+history.go(0);
+
+
 
 
 */
