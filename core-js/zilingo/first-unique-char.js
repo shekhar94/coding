@@ -9,16 +9,20 @@ function getFirstUnique(str) {
             obj.count += 1;
             map.set(str[i], obj);
         } else {
-            map.set(str[i], {count: 1, index: i});
+            map.set(str[i], { count: 1, index: i });
         }
     }
-    
-    console.log(map);
     let result;
     let index = str.length;
-    for (let key in map) {
-        const current = map.get(key);
-        if (current.count === 1 && current.index < index) {
+    // Iterating on map
+    // for (let [key, value] of map) {
+    //     console.log(key, ":", value);
+    // }
+    // for (let key of map.keys()) {
+    //     console.log(key);
+    // }
+    for (let [key, value] of map) {
+        if (value.count === 1 && value.index < index) {
             result = key;
         } 
     }
