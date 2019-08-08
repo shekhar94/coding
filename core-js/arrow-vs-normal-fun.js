@@ -1,7 +1,11 @@
-const fun1 = function() {
-    // this.a = 2;
-    // this.b = 3;
+const fun1 = function () {
+    console.log('Normal function this::', this);
 }
-const fun2 = fun1.bind({a: 3, b: 4});
-const f = new fun2();
-console.log(f);
+const fun2 = fun1.bind({ a: 3, b: 4 });
+fun2();
+
+const fun3 = () => {
+    console.log('Arrow function this::', this);
+}
+const fun4 = fun3.bind({ a: 3, b: 4 });
+fun4();

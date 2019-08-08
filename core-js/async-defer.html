@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head></head>
-
   <body>
     <!-- 
 
@@ -15,6 +14,8 @@
         Use defer for all the other scripts loaded in head section as 
         these will also be downloaded in parallel but executed only after 
         HTML parsing has completed and DOM is ready for access/manipulation.
+        Meant to be executed after dom content is parsed but before firing  
+        DOMContentLoaded event.
 
 
         You can also utilize combining DOMContentLoaded listener 
