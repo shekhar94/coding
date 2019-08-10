@@ -28,8 +28,13 @@ def main():
     # print(root.right.right.data)
     info_dict = dict()
     in_order_traversal(root, 0, info_dict)
+    arr = []
     for distance in info_dict:
-        print info_dict[distance].info,
+        arr.append((info_dict[distance].info, distance))
+    arr_sorted = sorted(arr, key=lambda n: n[1])
+    for i in range(0, len(arr_sorted)):
+        print arr_sorted[i][0],
+    # print arr_sorted
     
 
 main()
