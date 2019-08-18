@@ -1,15 +1,30 @@
-
-// function in_order_traversal(root, distance_from_root, map, depth) {
-//     if (!root) return;
-//     if (!map.has(distance_from_root)) {
-//         map.set(distance_from_root, { data: root.data, depth });
-//     } else if (map.get(distance_from_root).depth > depth) {
-//         map.set(distance_from_root, { data: root.data, depth });
-//     }
-//     in_order_traversal(root.left, distance_from_root - 1, map, depth + 1);
-//     in_order_traversal(root.right, distance_from_root + 1, map, depth + 1);
-// }
-
+/* 
+Recursive function for printing vertical order traversal of a 
+binary tree 
+*/
+function traverse(root, node_distance_map, hd) {
+    if (!root) return;
+    if (!node_distance_map.has(hd)) {
+        // if for a given hd no nodes found yet 
+        // initialize hd value as empty array
+        node_distance_map.set(hd, []);
+    }
+    node_distance_map.get(hd).push(root.data);
+    // for each left traversal reduce hd by 1
+    traverse(root.left, node_distance_map, hd - 1);
+    // for each left traversal increment hd by 1
+    traverse(root.right, node_distance_map, hd + 1);
+}
+/* 
+Print vertical order traversal of a binary tree
+for every hd (horizontal distance) save the node in 
+map (hd, [nodes for given hd])
+*/
+function vertical_order_traversal(root) {
+    let node_distance_map = new Map();
+    traverse(root, node_distance_map, 0);
+    console.log(node_distance_map);
+}
 /* 
 Print top view of binary tree
 Level order traversal + Vertical order traversal
@@ -17,7 +32,7 @@ Add hd (horizontal distance) for each node. For root node hd = 0
 Do level order traversal
 First node in level order traversal for a given hd comes in top view
 */
-function top_view(root) {
+function level_order_traversal(root) {
     const queue = [];
     const node_distance_map = new Map();
     root.hd = 0;
@@ -39,6 +54,7 @@ function top_view(root) {
     console.log(node_distance_map);
     return node_distance_map;
 }
+
 function main() {
     let root = {
         data: 1,
@@ -82,12 +98,7 @@ function main() {
     for (let key of Array.from(node_distance_map.keys()).sort((a, b) => a - b)) {
         console.log(node_distance_map.get(key));
     }
-    // const map = new Map();
-    // in_order_traversal(root, 0, map, 0);
-    // const top_view_arr = [];
-    // for (let [key, value] of map) {
-    //     top_view_arr.push(value);
-    // }
-    // console.log(top_view_arr);
+    // vertical_order_traversal(root);
 }
+
 main();
