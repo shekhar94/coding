@@ -14,7 +14,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/array/zigzag-tree-traversal.js"
+      "program": "${workspaceFolder}/core-js/byju/valid-bst-hr.js"
     }
     //   {
     //     "type": "node",
