@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/tree-top-view/copy-from/14110629
+
 class Node:
     def __init__(self, val, level):
         self.right = None
@@ -5,15 +7,23 @@ class Node:
         self.left = None
         self.level = level
 
-def in_order_traversal(root, distance_from_root, info_dict):
-    if root is None:
-        return
-    if not info_dict.has_key(distance_from_root):
-        info_dict[distance_from_root] = root
-    elif info_dict[distance_from_root].level > root.level:
-        info_dict[distance_from_root] = root
-    in_order_traversal(root.left, distance_from_root - 1, info_dict)
-    in_order_traversal(root.right, distance_from_root + 1, info_dict)
+def top_view(root):
+    queue = []
+    node_distance_dict = dict()
+    root.hd = 0
+    queue.append(root)
+    while queue:
+        tmp = queue.pop(0)
+        if not node_distance_dict.has_key(tmp.hd):
+            node_distance_dict[tmp.hd] = tmp
+        if tmp.left:
+            tmp.left.hd = tmp.hd - 1
+            queue.append(tmp.left)
+        if tmp.right: 
+            tmp.right.hd = tmp.hd + 1
+            queue.append(tmp.right)
+    return node_distance_dict
+    
 
 def main():
     root = Node(1, 0)
@@ -26,15 +36,13 @@ def main():
     root.left.right.right.right = Node(8, 4)
     root.left.right.right.right.right = Node(9, 5)
     # print(root.right.right.data)
-    info_dict = dict()
-    in_order_traversal(root, 0, info_dict)
+    info_dict = top_view(root)
     arr = []
     for distance in info_dict:
         arr.append((info_dict[distance].info, distance))
     arr_sorted = sorted(arr, key=lambda n: n[1])
     for i in range(0, len(arr_sorted)):
         print arr_sorted[i][0],
-    # print arr_sorted
     
 
 main()
