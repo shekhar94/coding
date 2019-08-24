@@ -7,7 +7,11 @@ User can click any number of times and all calls
 should be cached and should be executed in sequence.
 */
 // have you used generators in js
-//  implement promise in js
+// implement promise in js
+// you have same data coming from multiple sources
+// All the api's called parallely when any one of them
+// is fulfilled how will you abort rest of them i.e stop
+// processing response of other requests 
 
 function throttle_variant(fun, limit) {
     let lastRan;

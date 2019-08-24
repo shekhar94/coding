@@ -32,7 +32,7 @@ sol:
 
 max diff is 6
 
-4. Given traversal of a BST check if the tree is a valid bst
+4. Given (pre-order) traversal of a BST check if the tree is a valid bst
 
 
 *************************************************************

@@ -1,4 +1,5 @@
-// How to write const so that user will not be able to change the properties after creation
+// How to write const so that user will not be able to change 
+// the properties after creation
 
 const object1 = {};
 
