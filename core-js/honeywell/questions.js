@@ -15,4 +15,8 @@ How state management works
 Relative comparison of different types of databases
 Best use cases for all different types of dbs
 Infrastructure management, Load balancing, 
+
+sso(single sign-on)
+how to build single sign-on so that other companies can use the same
+and without sharing user data
 */
