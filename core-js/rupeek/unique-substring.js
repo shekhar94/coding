@@ -1,3 +1,14 @@
+/*Longest unique substring in string
+
+Input: abcdae
+Output: bcdae
+
+Input: aaaabbbcdab
+Output: bcda
+
+Input: abacdjeabee
+Output: cdjeab
+*/
 function clearMap(map, str, index) {
     for (let i = index; i >= 0; i--) {
         if (map.has(str[i])) map.delete(str[i]);

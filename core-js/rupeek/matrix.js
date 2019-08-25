@@ -1,3 +1,22 @@
+/*Given a matrix
+
+1 0 0 1 0
+0 0 1 0 1
+0 0 0 1 0
+1 0 1 0 1
+
+Format: ['10010','00101','00010','10101']
+Print the largest rectangle in the matrix if any.
+
+Output:
+
+1 0 1
+0 1 0
+1 0 1
+Format: ['101', '010', '101']
+
+-----------------------------------------------------*/
+
 function findLargestRect(m) {
     const rows = m.length;
     const columns = m[0].length;
