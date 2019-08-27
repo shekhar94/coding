@@ -10,29 +10,41 @@ function clearMap(map, str, current_index, index, current_max) {
 }
 
 function longestUniqueSubstr(str) {
-    let max_till = 0;
-    let current_max = 0;
-    let visited_map = new Map();
+    let max_till = 0; // max length of unique substring till that index
+    let current_max = 0; // max length of unique substring from last duplicate char
+    let visited_map = new Map(); // keeps track of visited chars in recent traversal (whenever duplicate found map get reset)
+    let current_start = 0; // starting index of recent substring
+    let max_start = 0; // starting index of longest substring till that index
     for (let i = 0; i < str.length; i++) {
         if (!visited_map.has(str[i])) {
             current_max++;
             visited_map.set(str[i], i);
-            if (current_max > max_till) max_till = current_max;
+            if (current_max > max_till) {
+                max_till = current_max;
+            }
         } else {
             const index = visited_map.get(str[i]);
             clearMap(visited_map, str, i, index, current_max);
-            if (current_max > max_till) max_till = current_max;
+            current_start = index + 1;
             current_max = i - index;
             visited_map.set(str[i], i);
+            if (current_max > max_till) {
+                max_till = current_max;
+            }
+        }
+        if (current_max >= max_till && current_start !== max_start) {
+            max_start = current_start;
         }
     }
+    console.log('max_start::', max_start);
+    console.log('longest_unique_substring::', str.substr(max_start, max_till));
     return max_till;
 }
 
 function main() {
-    const str = 'ABDEFGABEF';
+    // const str = 'ABDEFGABEF';
     // const str = 'BBBB';
-    // const str = 'GEEKSFORGEEKS';
+    const str = 'GEEKSFORGEEKS';
     const result = longestUniqueSubstr(str);
     console.log(result);
 }
