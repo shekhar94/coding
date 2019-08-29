@@ -1,0 +1,10 @@
+Love of programming.
+Solid Java and Python experience required.
+Fluency with JavaScript (ES6), HTML, CSS is highly recommended.
+Experience with web servers and REST APIs a PLUS.
+Experience with NoSQL database like MongoDB is desirable
+Solid understanding of scalable and distributed systems.
+Experience in working in linux environment.
+
+Knowledge of virtualization (VMWare, KVM, or Hyper-V) 
+and Cloud Infrastructure.

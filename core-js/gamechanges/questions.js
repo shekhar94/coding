@@ -83,3 +83,9 @@ function largestMatrix(inputMatrix) {
         }
     }
 }
+
+// If I ask about your weakness from your colleagues what would they tell
+// Strengths??
+// what is the most complex problem that you solved
+// what are the few things that excites you at work 
+// what are the few things which excites you negatively at work
