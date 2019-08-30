@@ -18,3 +18,11 @@
 
 // let say you are working on some application how would you decide where to use 
 // bind and where to use model
+
+// what you will do for browser compatibility when bundling code using webpack
+
+
+// *********************************************************
+// shadow dom angular
+// virtual dom react
+// https://reactjs.org/docs/faq-state.html#what-is-the-difference-between-state-and-props
