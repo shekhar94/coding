@@ -4,13 +4,16 @@
 // two way data binding angular
 
 // drawbacks of private functions
-// One of the drawback of creating true private method in javascript 
-// is that they are very memory inefficient because a new copy of 
-// the method would be created for each instance.
+/* One of the drawback of creating true private method in javascript
+is that they are very memory inefficient because a new copy of
+the method would be created for each instance. */
 
 // memory utilization by private function
 // will the private function use more memory
+
 // what is difference between props and state in react
+
+
 // generator functions
 // can I use a arrow function as constructor function
 // How inheritance works in javascript and how it is different from other languages like java
