@@ -14,7 +14,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/core-js/byju/valid-bst-hr.js"
+      "program": "${workspaceFolder}/core-js/nutanix/valid-string.js"
     }
     //   {
     //     "type": "node",
