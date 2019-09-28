@@ -11,4 +11,17 @@ and so on.
 in ascending order by merging all of them. Time complexity
 should be of order of (k*n*logn).
 Hint: Use min heap
+
+3. Design database schema for Uber
+Users
+Rides
+Availability
+Rating
+Payment
+OTP
+Finding nearest cabs
+Tracking drivers location in real time
+Payment methods integration
+
+4. Different types of hashing. How collisions are handled.
 */
