@@ -3,7 +3,14 @@ import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import { 
-  ToolHeader, WidgetTable, WidgetForm, SubscriptionInfoNotification } from './components';
+  ToolHeader, 
+  WidgetTable, 
+  WidgetForm 
+} from './components';
+
+import { 
+  SubscriptionInfoNotification 
+} from './subscriptions';
 
 const APP_QUERY = gql`
   query App {
@@ -48,14 +55,7 @@ const DELETE_WIDGET_MUTATION = gql`
   }
 `;
 
-const WIDGET_INSERTED_SUBSCRIPTION = gql`
-  subscription WidgetInserted {
-    widgetInserted {
-      id
-      name
-    }
-  }
-`;
+
 
 const WIDGET_DELETED_SUBSCRIPTION = gql`
   subscription WidgetDeleted {
@@ -72,9 +72,7 @@ export class App extends React.Component {
   render() {
     return <React.Fragment>
       <section id="notifications">
-        <SubscriptionInfoNotification subscription={WIDGET_INSERTED_SUBSCRIPTION} refetchQueries={[{ query: APP_QUERY }]}>
-          {({ widgetInserted: { name } }) => <span>A widget named {name} was inserted!</span>}
-        </SubscriptionInfoNotification>
+        
         <SubscriptionInfoNotification subscription={WIDGET_DELETED_SUBSCRIPTION} refetchQueries={[{ query: APP_QUERY }]}>
           {({ widgetDeleted: { name } }) => <span>A widget named {name} was deleted!</span>}
         </SubscriptionInfoNotification>
