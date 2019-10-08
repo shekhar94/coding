@@ -10,4 +10,7 @@ cmd+shift+t to generate unit test file
 
 WebFlux
 FlatMap in java
+
+
+opt+cmd+i for opening console
  */
