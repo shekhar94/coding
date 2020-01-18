@@ -98,7 +98,7 @@ function main() {
     for (let key of Array.from(node_distance_map.keys()).sort((a, b) => a - b)) {
         console.log(node_distance_map.get(key));
     }
-    // vertical_order_traversal(root);
+    vertical_order_traversal(root);
 }
 
 main();

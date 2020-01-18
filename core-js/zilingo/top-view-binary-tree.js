@@ -1,14 +1,14 @@
 
-// function in_order_traversal(root, distance_from_root, map, depth) {
-//     if (!root) return;
-//     if (!map.has(distance_from_root)) {
-//         map.set(distance_from_root, { data: root.data, depth });
-//     } else if (map.get(distance_from_root).depth > depth) {
-//         map.set(distance_from_root, { data: root.data, depth });
-//     }
-//     in_order_traversal(root.left, distance_from_root - 1, map, depth + 1);
-//     in_order_traversal(root.right, distance_from_root + 1, map, depth + 1);
-// }
+function in_order_traversal(root, distance_from_root, map, depth) {
+    if (!root) return;
+    if (!map.has(distance_from_root)) {
+        map.set(distance_from_root, { data: root.data, depth });
+    } else if (map.get(distance_from_root).depth > depth) {
+        map.set(distance_from_root, { data: root.data, depth });
+    }
+    in_order_traversal(root.left, distance_from_root - 1, map, depth + 1);
+    in_order_traversal(root.right, distance_from_root + 1, map, depth + 1);
+}
 
 /* 
 Print top view of binary tree
@@ -77,17 +77,17 @@ function main() {
             }
         }
     }
-    const node_distance_map = level_order_traversal(root);
-    console.log(node_distance_map.keys());
-    for (let key of Array.from(node_distance_map.keys()).sort((a, b) => a - b)) {
-        console.log(node_distance_map.get(key));
-    }
-    // const map = new Map();
-    // in_order_traversal(root, 0, map, 0);
-    // const top_view_arr = [];
-    // for (let [key, value] of map) {
-    //     top_view_arr.push(value);
+    // const node_distance_map = level_order_traversal(root);
+    // console.log(node_distance_map.keys());
+    // for (let key of Array.from(node_distance_map.keys()).sort((a, b) => a - b)) {
+    //     console.log(node_distance_map.get(key));
     // }
-    // console.log(top_view_arr);
+    const map = new Map();
+    in_order_traversal(root, 0, map, 0);
+    const top_view_arr = [];
+    for (let [key, value] of map) {
+        top_view_arr.push(value);
+    }
+    console.log(top_view_arr);
 }
 main();
