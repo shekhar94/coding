@@ -8,7 +8,6 @@ public class CountingValleys {
     public static void main(String[] args) {
         // formatting cmd+opt+l
         Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
         String str = s.next();
         char start = str.charAt(0);
 
