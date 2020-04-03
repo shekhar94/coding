@@ -1,4 +1,13 @@
 package com.frankmoley.lil.designpatternsapp.decorator;
 
-public class Pizza {
+import java.math.BigDecimal;
+
+public abstract class Pizza {
+    protected String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public abstract BigDecimal getCost();
 }

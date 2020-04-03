@@ -1,0 +1,25 @@
+https://leapgraph.com/graphql-api-security
+
+whitelisting of queries (later)
+
+graphql-depth-limit (Added depth limit for gql queries)
+
+mark cookie as secure and httponly (done)
+
+Is Apollo client.resetStore() called on logout to clear query results?
+Team will validate done
+
+Any email notifications? How is this set up? SPF records?
+AWS email service
+Only whitelisted email ids get emails (not general public)
+Send details to Martin for review
+
+devops
+
+
+owasp logger 
+
+[greenlight]
+veracode_api_key_id = 900d2bd11736c9f7bd5ed1b772450ba4
+veracode_api_key_secret = ccd8458cd8dae058e83350851d51b45ae3ccafa8072bf023b5bd9fbc54d2e256351a256202c6f6eba7b03cbeeefce31d67f461967464c7f96c893af94cab6ab6
+

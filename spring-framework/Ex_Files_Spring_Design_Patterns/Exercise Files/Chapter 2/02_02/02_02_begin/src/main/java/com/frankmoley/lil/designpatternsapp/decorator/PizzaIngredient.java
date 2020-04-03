@@ -1,4 +1,6 @@
 package com.frankmoley.lil.designpatternsapp.decorator;
 
-public class PizzaIngredient {
+public abstract class PizzaIngredient extends Pizza {
+    public abstract String getDescription();
+
 }

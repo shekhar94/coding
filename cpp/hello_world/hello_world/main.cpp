@@ -7,9 +7,29 @@
 //
 
 #include <iostream>
+#include <map>
+using namespace std;
+
+string twoStrings(string s1, string s2) {
+    map<char, bool> map1;
+    map<char, bool> map2;
+    for(int i = 0; i < s1.length(); i++) {
+        map1.insert(pair<char, bool>(s1.at(i), true));
+    }
+    for(int i = 0; i < s2.length(); i++) {
+        map2.insert(pair<char, bool>(s2.at(i), true));
+    }
+    for(pair<char, bool> element: map1) {
+        if(map2.count(element.first)){
+            return "YES";
+        }
+    }
+    return "NO";
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    string result = twoStrings("hello", "ol");
+    cout<<result;
     return 0;
 }

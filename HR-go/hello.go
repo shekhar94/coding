@@ -1,15 +1,15 @@
 // building go program
-// build single file 
+// build single file
 // > go build -o output_file_name.exe input_file_name.go
-// build complete package 
+// build complete package
 // > go build (builds with directory_name.exe as output file)
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-func main() {
-	var age int
-	age = 24
-	fmt.Printf("%d", age)
-	fmt.Printf("Hello, world\n")
-}
+// func main() {
+// 	var age int
+// 	age = 24
+// 	fmt.Printf("%d", age)
+// 	fmt.Printf("Hello, world\n")
+// }
