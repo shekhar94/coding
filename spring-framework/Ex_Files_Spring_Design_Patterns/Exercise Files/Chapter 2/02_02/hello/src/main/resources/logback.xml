@@ -1,0 +1,15 @@
+<configuration>
+    <conversionRule conversionWord="mask"
+                    converterClass="org.owasp.security.logging.mask.MaskingConverter" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date ${HOSTNAME} [%thread] [%-5level] [%marker] %logger{40} - %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="academy.learn" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
