@@ -1,27 +1,38 @@
 import java.util.*;
 
 public class BFS {
-    public static void main(String[] args) {
-        int[][] graph = {{0, 1, 1, 1, 0}, {1, 0, 1, 0, 0}, {1, 1, 0, 1, 1}, {1, 0, 1, 0, 1}, {0, 0, 1, 1, 0}};
 
-        ArrayList<Integer> visited = new ArrayList<>();
+    private static void BFSTraversal(int startingNode, int[][] graph) {
+        boolean[] visited = new boolean[graph.length];
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(0);
-        visited.add(0);
+        queue.add(startingNode);
+        visited[startingNode] = true;
 
+        System.out.println("BFS Traversal:");
         while (!queue.isEmpty()) {
             int currentNode = queue.poll();
-
-            for (int i = 0; i < graph.length; i++) {
-                if (!visited.contains(i) && graph[currentNode][i] == 1) {
-                    System.out.println("adding " + (i+1));
-                    queue.add(i);
-                    visited.add(i);
+            System.out.print((currentNode+1) + " ");
+            for (int vertex = 0; vertex < graph.length; vertex++) {
+                if (!visited[vertex] && graph[currentNode][vertex] == 1) {
+                    queue.add(vertex);
+                    visited[vertex] = true;
                 }
             }
         }
-        for(Integer ele: visited) {
-            System.out.print((ele+1) + " ");
-        }
+    }
+
+    public static void main(String[] args) {
+        // int[][] graph = {{0, 1, 1, 1, 0}, {1, 0, 1, 0, 0}, {1, 1, 0, 1, 1}, {1, 0, 1, 0, 1}, {0, 0, 1, 1, 0}};
+        int[][] graph = {
+                {0, 1, 1, 1, 0, 0, 0},
+                {1, 0, 1, 0, 0, 0, 0},
+                {1, 1, 0, 1, 1, 0, 0},
+                {1, 0, 1, 0, 1, 0, 0},
+                {0, 0, 1, 1, 0, 1, 1},
+                {0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0}
+        };
+
+        BFSTraversal(0, graph);
     }
 }
