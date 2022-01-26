@@ -1,0 +1,149 @@
+/*
+  Write a function sum(n1)(n2)(n3)...(nk)() that could be called arbitrary number of times with numbers and it returns the total sum.
+
+  For example: 
+  1. sum(2)(3)(5)()  return 10
+  2. sum(7)(4)() return 11
+*/
+
+closures in js
+which react version are you using
+
+function sum(num) {
+  let sumOfNums = 0;
+  
+  function innerSum(num1) {
+    return sumOfNums + num1;
+  }
+  
+  if (num) {
+    sumOfNums += num
+    console.log(sumOfNums);
+    return innerSum
+  }
+  console.log(sumOfNums);
+  return sumOfNums;
+}
+
+//sum(2)(3)(5)();
+
+/*
+write a function that return a n x n matrix with the elemens ordered in spiral form
+getSprialMatrix(size = 4). The first element starts with number 1 
+
+Input:  getSprialMatrix(4);
+output: [
+  [1,  2,  3,  4],
+  [12, 13, 14, 5],
+  [11, 16, 15, 6],
+  [10, 9,  8,  7]
+]
+*/
+function fillMatrix(arr, direction, i, j, currentNum) {
+  switch(direction) {
+    // left to right: inc j
+    case 1:
+      for (j; j < arr.length; j++) {
+        if (!arr[i][j]) {
+          arr[i][j] = currentNum;
+          currentNum++;
+        } else break;
+      }
+      break;
+    // top to bottom inc i
+    case 2:
+      for (i; i < arr.length; i++) {
+        if (!arr[i][j]) {
+          arr[i][j] = currentNum;
+          currentNum++;
+        } else break;
+      }
+      break;
+    // right to left dec j
+    case 3:
+      for (j = arr.length; j >= 0; j--) {
+        if (!arr[i][j]) {
+          arr[i][j] = currentNum;
+          currentNum++;
+        } else break;
+      }
+      break;
+    // bottom up dec i
+    case 4:
+      for (i = arr.length; i >= 0; i--) {
+        if (!arr[i][j]) {
+          arr[i][j] = currentNum;
+          currentNum++;
+        } else break;
+      }
+      break;
+  }
+  return {currentNum, i, j};
+}
+
+
+function getSpiralMatrix(size) {
+  const arr = new Array(size).fill(new Array(size))
+  console.log(arr);
+  
+  let left = 0, right = 3, bottom = 3, top = 0;
+  let completed = false;
+  let i =0, j= 0;
+  let currentNum = 1;
+  
+  
+  
+  
+  let leftToRight = true, rightToLeft, topToBottom, bottomUp;
+  let data;
+  while (!completed) {
+    if (leftToRight) {
+      data = fillMatrix(arr, 1, i, j, currentNum);
+      
+      leftToRight = false;
+      topToBottom = true
+    }
+    if (topToBottom) {
+      data =  fillMatrix(arr, 2, i, j, currentNum);
+      
+      topToBottom = false;
+      rightToLeft = true;
+    }
+    
+    if (rightToLeft) {
+      data =  fillMatrix(arr, 3, i, j, currentNum);
+      
+      rightToLeft = false;
+      bottomUp = true;
+    }
+    
+    if (bottomUp) {
+      data =  fillMatrix(arr, 4, i, j, currentNum);
+      
+      bottomUp = false;
+      leftToRight = true; 
+    }
+    
+    console.log(data.currentNum);
+    
+    if (currentNum === size*size) completed = true;
+    
+    
+    
+    // right boundry
+//     if (j > right) {
+//       // move down
+//       i++;
+//       j--;
+//     }
+    
+//     if (!arr[i][j]) {
+//       arr[i][j] = currentNum;
+//       currentNum++;
+//       j++
+//     }
+  }
+  
+}
+
+getSpiralMatrix(4);
