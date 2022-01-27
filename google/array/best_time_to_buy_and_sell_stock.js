@@ -9,17 +9,12 @@ function maxProfit(prices) {
     while (i <= len - 2) {
         const isInUpTrend = prices[i] < prices[i + 1];
         const isInDownTrend = prices[i] > prices[i + 1];
-        const isInNeutralTrend = prices[i] === prices[i + 1];
+
         // price moving up
         if (isInUpTrend && buyIndex === -1) {
             // not bought yet
             buyIndex = i;
             console.log('buy at ' + buyIndex);
-        } else if (isInUpTrend && i === len - 2) {
-            // bought already
-            profit += prices[i + 1] - prices[buyIndex];
-            console.log('profit booking at ' + (i + 1));
-            buyIndex = -1
         }
 
         // price moving down
@@ -30,13 +25,6 @@ function maxProfit(prices) {
             buyIndex = -1;
         }
 
-        // price remains same
-        if (isInNeutralTrend && i === len - 2 && buyIndex !== -1) {
-            // bought already but there are no prices after this day
-            profit += prices[i] - prices[buyIndex];
-            console.log('profit booking at ' + i);
-            buyIndex = -1;
-        }
         i++;
     }
 
