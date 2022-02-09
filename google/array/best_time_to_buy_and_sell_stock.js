@@ -12,20 +12,14 @@ function maxProfit(prices) {
         const isInDownTrend = prices[i] > prices[i + 1];
 
         // price moving up
-        if (isInUpTrend && buyIndex === -1) {
-            // not bought yet
-            buyIndex = i;
-            console.log('buy at ' + buyIndex);
-        }
+        if (isInUpTrend && buyIndex === -1) buyIndex = i; // not bought yet
 
         // price moving down
         if (isInDownTrend && buyIndex !== -1) {
             // bought already
             profit += prices[i] - prices[buyIndex];
-            console.log('profit booking at ' + i);
             buyIndex = -1;
         }
-
         i++;
     }
 
