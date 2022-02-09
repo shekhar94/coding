@@ -30,6 +30,14 @@ function maxProfit(prices) {
     return profit;
 }
 
+function maxProfit1(prices) {
+    let profit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] - prices[i - 1] > 0) profit += prices[i] - prices[i - 1];
+    }
+    return profit;
+}
+
 function main() {
     const ip_arr = [7, 1, 5, 3, 6, 4]; // 7
     // const ip_arr = [7, 6, 4, 3, 1]; // 0
@@ -39,7 +47,7 @@ function main() {
     // const ip_arr = [1, 2];
     // const ip_arr = [2, 1, 4];
 
-    console.log(maxProfit(ip_arr));
+    console.log(maxProfit1(ip_arr));
 }
 
 main();
