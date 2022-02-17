@@ -1,17 +1,27 @@
 
 // https://leetcode.com/problems/regular-expression-matching/submissions/
-function dfs(s, sI, p, pI) {
-    if (sI >= s.length && pI >= p.length) return true;
-    if (pI >= p.length) return false;
 
+// Recursive solution
+function dfs(s, sI, p, pI) {
+    if (sI >= s.length && pI >= p.length) return true; // both indices out of bound that means it's a complete match
+    if (pI >= p.length) return false; // if pattern index is out of bound then we are sure that it's not a match
+    // There will be a match 
+    // 1. if both the pattern and string has same char at current index
+    // 2. if current index in pattern string is '.' which can match any single char
     const match = (sI < s.length) && (s[sI] === p[pI] || p[pI] === '.')
+    // If the char at next index in pattern string is '*'
+    // There are 2 possiblities
+    // 1. There are no occurences of current char in that scenario we need to move two chars ahead in pattern string to match the current char in s
+    // 2. If current char in s is matching with current char in pattern string, we can take 1 occurence of current char in pattern and move on to match next char in s
     if (pI + 1 < p.length && p[pI + 1] === '*') {
         return (dfs(s, sI, p, pI + 2) || (match && dfs(s, sI + 1, p, pI)))
     }
+    // if current char in s is matching with current char in p move to next char in both s and p
     if (match) return dfs(s, sI + 1, p, pI + 1);
     return false;
 }
 
+// DP approach efficient (based on the recursive approach)
 let dp = [];
 
 function dfsDP(s, sI, p, pI) {
