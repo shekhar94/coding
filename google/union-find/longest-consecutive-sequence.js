@@ -1,3 +1,14 @@
+function _getSequenceLen(map, lastNo) {
+    let seqLen = 0;
+
+    // can store just the length also instead of maintaining an array
+    while (map.has(lastNo + 1)) {
+        lastNo++;
+        seqLen++;
+    }
+    return seqLen;
+}
+
 function longestConsecutive(nums) {
     const map = new Map()
     for (let i = 0; i < nums.length; i++) {
@@ -6,25 +17,17 @@ function longestConsecutive(nums) {
     }
 
     const groupingMap = new Map();
-    function _getSequence(lastNo) {
-        let tmpArr = [];
+    let maxLen = 0;
 
-        while (map.has(lastNo + 1)) {
-            lastNo++;
-            tmpArr.push(lastNo);
-        }
-        return tmpArr;
-    }
     for (let i = 0; i < nums.length; i++) {
         if (!map.has(nums[i] - 1)) {
             // This is start of a sequence
-            groupingMap.set(nums[i], [nums[i], ..._getSequence(nums[i])]);
+            groupingMap.set(nums[i], 1 + _getSequenceLen(map, nums[i]));
+            maxLen = Math.max(maxLen, groupingMap.get(nums[i]));
         }
     }
 
-    return [...groupingMap.values()].reduce((acc, item) => {
-        acc = Math.max(acc, item.length); return acc;
-    }, 0);
+    return maxLen;
 }
 
 function main() {
