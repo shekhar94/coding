@@ -41,14 +41,22 @@ function topKFrequentFreqIndex(arr, k) {
 
     const res = [];
     let i = freqIndex.length - 1;
-    while (res.length < k) {
+    for (let i = freqIndex.length - 1; i > -1; --i) {
         if (freqIndex[i]) {
-            const nums = freqIndex[i];
-            for (let j = 0; j < nums.length && res.length < k; j++) res.push(nums[j]);
+            for (let j = 0; j < freqIndex[i].length; j++) {
+                res.push(freqIndex[i][j]);
+                if (res.length === k) return res;
+            }
         }
-        i--;
     }
-    return res;
+    // while (res.length < k) {
+    //     if (freqIndex[i]) {
+    //         const nums = freqIndex[i];
+    //         for (let j = 0; j < nums.length && res.length < k; j++) res.push(nums[j]);
+    //     }
+    //     i--;
+    // }
+    // return res;
 }
 
 function main() {

@@ -45,6 +45,21 @@ function topDown(str) {
     return dp[str.length] || false;
 }
 
+function wordBreakDp(s, arr) {
+    const dp = new Array(s.length + 1).fill(false);
+    dp[s.length] = true;
+    // base case
+    for (let i = s.length - 1; i > -1; i--) {
+        for (let word of arr) {
+            if (word.length <= s.length - i && word === s.substring(i, i + word.length)) {
+                dp[i] = dp[i + word.length];
+            }
+            if (dp[i]) break;
+        }
+    }
+    return dp[0];
+}
+
 function wordBreak(s, wordDict) {
     wordMap = new Map();
     dp = [];
