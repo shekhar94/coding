@@ -1,3 +1,4 @@
+// Recursive Approach: TLE
 var integerBreak = function (n) {
     let res = 1;
 
@@ -22,6 +23,8 @@ var integerBreak = function (n) {
 // console.log(integerBreak(10));
 // console.log(integerBreak(2));
 
+
+// Memoized recursion
 var integerBreak = function (n) {
     let res = 1;
     let dp = new Array(n + 1).fill(-1);
