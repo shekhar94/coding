@@ -1,4 +1,5 @@
 // DFS, Topological Sorting
+// Time Space O(V+E)
 function dfs(adjList, visited, order, i) {
     if (adjList[i].length === 0) { // There are no prerequisites for taking this course
         order.add(i);
