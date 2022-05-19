@@ -18,3 +18,17 @@ var diameterOfBinaryTree = function (root) {
     diameter(root);
     return max;
 };
+// 15 May 2022
+var diameterOfBinaryTree = function (root) {
+    let dia = 0;
+    function helper(root) {
+        if (!root) return -1;
+
+        const lh = 1 + helper(root.left);
+        const rh = 1 + helper(root.right);
+        dia = Math.max(dia, lh + rh);
+        return Math.max(lh, rh);
+    }
+    helper(root);
+    return dia;
+};

@@ -13,3 +13,15 @@ var isBalanced = function (root) {
     helper(root);
     return isBal;
 };
+
+// Space O(N) Time: O(N)
+var isBalanced = function (root) {
+    function helper(root) {
+        if (!root) return [0, true];
+        let l = helper(root.left);
+        let r = helper(root.right);
+        const bal = l[1] && r[1] && (Math.abs(l[0] - r[0]) <= 1);
+        return [1 + Math.max(l[0], r[0]), bal];
+    }
+    return helper(root)[1];
+}

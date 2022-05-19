@@ -1,4 +1,4 @@
-// Time O(2^n)
+// Time O(2^n) space: O(n)
 var maxLength = function (arr) {
     function hasUniqueChars(word) {
         const map = new Map();

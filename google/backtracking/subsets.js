@@ -1,4 +1,4 @@
-// n*2^n
+// n*2^n space: O(n)
 var subsets = function (nums) {
     const res = [];
     let subset = [];

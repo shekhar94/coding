@@ -35,6 +35,25 @@ var isInterleave = function (s1, s2, s3) {
     return memoized(0, 0);
 };
 
+var isInterleave = function (s1, s2, s3) {
+    const [l1, l2, l3] = [s1.length, s2.length, s3.length]
+    if (l1 + l2 !== l3) return false;
+
+    const dp = new Array(l1 + 1).fill(-1).map(() => new Array(l2 + 1).fill(-1));
+
+    function helper(i, j) {
+        if (i === l1 && j === l2) return true;
+        if (dp[i][j] !== -1) return dp[i][j];
+
+        const k = i + j;
+        if (i < l1 && s1[i] === s3[k] && helper(i + 1, j)) return true;
+        if (j < l2 && s2[j] === s3[k] && helper(i, j + 1)) return true;
+
+        return dp[i][j] = false;
+    }
+    return helper(0, 0);
+};
+
 
 // Bottom up Approach: DP
 var isInterleave = function (s1, s2, s3) {
