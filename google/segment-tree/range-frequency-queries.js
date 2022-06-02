@@ -19,6 +19,7 @@ function getFreq(freqL, freqR) {
 var RangeFreqQuery = function (arr) {
     [this.low, this.high] = [0, arr.length - 1];
     const treeSize = nextPowerOf2(arr.length);
+    // treeSize*2 - 1
     this.segTree = new Array(treeSize).fill({});
     const segTree = this.segTree;
 

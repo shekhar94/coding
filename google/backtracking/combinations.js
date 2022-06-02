@@ -3,7 +3,7 @@ var combine = function (n, k) {
     const res = [];
     function backtrack(arr, i) {
         if (arr.length === k) return res.push([...arr]);
-        if (arr.length > k || i > n) return;
+        if (i > n) return;
 
         arr.push(i);
         backtrack(arr, i + 1);

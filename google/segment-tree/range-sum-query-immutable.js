@@ -9,6 +9,7 @@ var NumArray = function (nums) {
         return n << 1;
     }
     const treeSize = nextPowerOf2(nums.length);
+    // treeSize = nextPowOf2*2 - 1 
     const segTree = new Array(treeSize);
     [this.high, this.segTree] = [nums.length - 1, segTree];
 

@@ -97,8 +97,8 @@ function minCostConnectPoints(points) {
 }
 
 function main() {
-    // let points = [[0, 0], [2, 2], [3, 10], [5, 2], [7, 0]];
-    let points = [[3, 12], [-2, 5], [-4, 1]];
+    let points = [[0, 0], [2, 2], [3, 10], [5, 2], [7, 0]];
+    // let points = [[3, 12], [-2, 5], [-4, 1]];
 
     console.log(minCostConnectPoints(points));
 }

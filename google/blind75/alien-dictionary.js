@@ -50,3 +50,4 @@ var alienOrder = function (words) {
 };
 
 console.log(alienOrder(["wrt", "wrf", "er", "ett", "rftt"]));
+console.log(alienOrder(["Z", "Z"]));

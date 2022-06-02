@@ -1,3 +1,8 @@
+/* 
+N -> no of accounts, K -> Max length of an account
+Time : O(NKlogNK)
+Space: O(NK)
+*/
 var accountsMerge = function (accounts) {
     const tree = new Array(accounts.length).fill(0).map((val, idx) => idx);
     const rank = new Array(accounts.length).fill(0);

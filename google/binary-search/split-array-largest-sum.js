@@ -1,3 +1,4 @@
+// Time O(NlogS) S -> Sum 
 var splitArray = function (nums, m) {
     let [l, r] = [Math.max(...nums), nums.reduce((acc, val) => acc + val, 0)];
     let ans = r;
